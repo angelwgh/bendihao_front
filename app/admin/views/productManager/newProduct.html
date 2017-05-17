@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>管理员账号管理</title>
+  <link href="styles/webstyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="wrap clear">
+  <div class="side fl">
+    <ul class="ul-side">
+      <li><a href="#" class="menu-name"><span class="ico ico-1"></span>首页<i></i></a></li>
+      <li class="current">
+        <!------------  点击展开后添加open  ------------->
+        <a href="#" class="menu-name"><span class="ico ico-2"></span>岗位管理<i class="open"></i></a>
+
+        <div class="sub-menu">
+          <ul class="ul-sub-menu">
+            <li><a href="#" class="sub-menu-name"><span class="ico"></span>岗位管理</a></li>
+            <li>
+              <a href="#" class="sub-menu-name"><span class="ico"></span>岗位管理<i class="open"></i></a>
+
+              <div class="sub-menu">
+                <ul class="ul-sub-menu-1 sm-1">
+                  <li><a href="#" class="sub-menu-name smn-1"><span class="ico-s"></span>岗位管理</a></li>
+                  <li><a href="#" class="sub-menu-name smn-1"><span class="ico-s"></span>岗位管理</a></li>
+                  <li><a href="#" class="sub-menu-name smn-1 current"><span class="ico-s"></span>岗位管理</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#" class="sub-menu-name"><span class="ico"></span>岗位管理</a>
+
+              <div class="sub-menu hide">
+                <ul class="ul-sub-menu-1 sm-1">
+                  <li><a href="#" class="sub-menu-name smn-1"><span class="ico-s"></span>岗位管理</a></li>
+                  <li><a href="#" class="sub-menu-name smn-1"><span class="ico-s"></span>岗位管理</a></li>
+                  <li><a href="#" class="sub-menu-name smn-1 current"><span class="ico-s"></span>岗位管理</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#" class="menu-name"><span class="ico ico-3"></span>课程资源管理<i></i></a></li>
+      <li><a href="#" class="menu-name"><span class="ico ico-4"></span>学习安排<i></i></a></li>
+      <li><a href="#" class="menu-name"><span class="ico ico-5"></span>考评安排<i></i></a></li>
+      <li><a href="#" class="menu-name"><span class="ico ico-6"></span>平台基础信息管理<i></i></a></li>
+      <li><a href="#" class="menu-name"><span class="ico ico-7"></span>帐号管理<i></i></a></li>
+      <li><a href="#" class="menu-name"><span class="ico ico-8"></span>运营管理<i></i></a></li>
+      <li><a href="#" class="menu-name"><span class="ico ico-9"></span>统计中心<i></i></a></li>
+    </ul>
+    <a href="#" class="ico side-label"></a>
+  </div>
+  <div class="main-wrap fr">
+    <div class="main-wrap-pos">
+      <div class="top abs">
+        <div class="header clear">
+          <a href="#" class="logo fl"><img src="images/logo.png" alt=""/></a>
+
+          <div class="header-nav fr">
+            <a href="#">帮助中心</a>
+            <a href="#">退出登录</a>
+          </div>
+          <div class="user fr">
+            <div class="img-user fl">
+              <img src="images/user-img.jpg" alt=" ">
+              <span class="img-mask"><img src="images/user-img-mask.png"></span>
+            </div>
+            <div class="user-info fl">
+              <span class="user-name">张大宝</span>
+              <a href="#" class="user-level rd3">管理员<i class="ico"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="main-body">
+        <div class="nav clear">
+          <a href="#">首页<span class="ico close"></span></a>
+          <a href="#" class="current">管理员账号管理<span class="ico close"></span></a>
+        </div>
+        <div class="main-wrap-cont abs">
+
+          <div class="main-wrap-body">
+
+
+            <div class="col-body">
+              <a href="#" class="btn-b btn">新增账号</a>
+              <a href="#" class="btn-b btn ml10">停用账号</a>
+              <a href="#" class="btn-b btn ml10">启用账号</a>
+              <a href="#" class="btn-b btn ml10">注销账号</a>
+            </div>
+
+            <div class="dash-line"></div>
+
+            <div class="column">
+              <div class="col-body">
+                <div class="search-bar">
+                  <ul class="ul-form li-fl clear">
+                    <li><input type="text" class="ipt ipt-medium" placeholder="请输入账号信息"/></li>
+                    <li><input type="text" class="ipt ipt-medium" placeholder="账号持有人姓名"/></li>
+                    <li><input type="text" class="ipt ipt-medium" placeholder="请输入邮箱号"/></li>
+                    <li>
+                      <select class="slt slt-medium">
+                        <option>账号状态</option>
+                      </select>
+                    </li>
+                    <li><a href="#" class="btn btn-b">查询</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="column mt20">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th width="30"><input type="checkbox"></th>
+                  <th width="70">序号</th>
+                  <th width="120">账号</th>
+                  <th width="170">持有人姓名</th>
+                  <th width="150">邮箱号</th>
+                  <th width="130">管理单位</th>
+                  <th width="130">管理部门</th>
+                  <th width="130">状态</th>
+                  <th width="250">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>20</td>
+                  <td>张大宝宝宝</td>
+                  <td>35010319903111511</td>
+                  <td>交易成功</td>
+                  <td>交易成功</td>
+                  <td>交易成功</td>
+                  <td>交易成功</td>
+                  <td class="op">
+                    <a href="#">查看</a>
+                    <a href="#">修改</a>
+                    <a href="#">启用</a>
+                    <a href="#">离职</a>
+                    <a href="#">重置密码</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>20</td>
+                  <td>张大宝</td>
+                  <td>交易成功</td>
+                  <td>交易成功</td>
+                  <td>交易成功</td>
+                  <td>交易成功</td>
+                  <td>交易成功</td>
+                  <td class="op">
+                    <a href="#">查看</a>
+                    <a href="#">修改</a>
+                    <a href="#">启用</a>
+                    <a href="#">离职</a>
+                    <a href="#">重置密码</a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="column mt30">
+              <div class="col-body">
+                <div class="pages fr">
+                  <span class="page-info">第1/68页 总共149条</span>
+                  <a href="#" class="a-1">首页</a>
+                  <a href="#" class="a-1">上一页</a>
+                  <a class="current" href="#">1</a>
+                  <a href="#">2</a>
+                  <a href="#">3</a>
+                  <a href="#">4</a>
+                  <a href="#">5</a>
+                  <a href="#">6</a>
+                  <a href="#" class="a-1">下一页</a>
+                  <a href="#" class="a-1">尾页</a>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

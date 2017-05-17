@@ -1,0 +1,28 @@
+
+<div kendo-window="node.uploadHeadWindow" k-options="windowConfig">
+    <div class="dialog w-textarea4">
+        <div class="dialog-body">
+            <div class="dialog-tit">图片上传<a href="javascript: void(0);" ng-click="node.uploadHeadWindow.close()"
+                                           class="ico ico-close"></a></div>
+            <div class="dialog-cont clear">
+                <div class="original-img fl">
+
+                    <div class="img-upload">
+                        <div class="upload fl">
+                            <div id="upload_btn">选择图片</div>
+                        </div>
+                        <span class="fl">只支持JPG、PNG</span>
+                    </div>
+
+                    <div class="or-img-box1">
+                        <img class="horizontal"  src="images/image_container.png" id="image_preview_container" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-center">
+                <input type="button" class="btn btn-r" ng-click="getResult()" value="保存"/>
+                <input type="button" class="btn btn-g ml10" ng-click="node.uploadHeadWindow.close()" value="取消"/>
+            </div>
+        </div>
+    </div>
+</div>

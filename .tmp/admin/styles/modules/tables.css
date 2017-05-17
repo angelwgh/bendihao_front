@@ -1,0 +1,35 @@
+table {
+  width: 100%;
+  border: none;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: #fff;
+  text-align: center;
+}
+table th {
+  height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+table td {
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.table .op a {
+  padding: 3px;
+  color: #3ca2e2;
+}
+.table .op a:hover {
+  color: #54b1ec;
+}
+.table-f {
+  table-layout: fixed;
+}
+.table-f td {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

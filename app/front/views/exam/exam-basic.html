@@ -1,0 +1,23 @@
+<div class="modules zoomInDown animated">
+    <div class="header">
+        <div class="wrap clearfix">
+            <!--<a ui-sref="states.home" class="h-btn btn-min" title="桌面"></a>-->
+            <a ui-sref="states.home" class="h-btn btn-close" title="关闭"></a>
+            <div class="title">广告管理</div>
+        </div>
+    </div>
+
+    <div class="main-wrap-body">
+        <div class="wrap">
+
+            <!--左侧的导航-->
+            <div hb-navigation navs="navs" title="title"></div>
+
+            <!--右侧内容-->
+            <div ui-view="" class="content-box pull-right">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div kendo-window="node.windows.addWindow" k-options="ui.windows.addWindow"></div>

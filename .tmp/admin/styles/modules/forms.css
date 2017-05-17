@@ -1,0 +1,101 @@
+.ipt,
+select,
+textarea {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 7px;
+  margin: 0;
+  color: #666;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  transition: all .4s;
+  -moz-transition: all .4s;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+}
+.ipt:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+select {
+  padding: 6px 7px;
+  color: #999;
+}
+::-webkit-input-placeholder {
+  color: #666;
+}
+:-ms-input-placeholder {
+  color: #666;
+}
+:-moz-placeholder {
+  color: #666;
+}
+::-moz-placeholder {
+  color: #666;
+}
+textarea {
+  height: 90px;
+  resize: none;
+}
+.textarea-1 {
+  height: 60px;
+}
+.chk,
+.rad {
+  position: relative;
+  *top: 1px;
+  margin: 0 4px 0 0;
+  *margin: 0 0 0 -4px;
+}
+/**********  input  ***************/
+.ipt-large {
+  width: 230px;
+}
+.ipt-medium {
+  width: 180px;
+}
+.ipt-small {
+  width: 120px;
+}
+.ipt-mini {
+  width: 80px;
+}
+.ipt-c-xm {
+  width: 40px;
+  text-align: center;
+}
+.table .ipt-c-xm {
+  padding: 4px;
+}
+.ipt-disabled {
+  backgrond-color: #f2f2f2;
+  cursor: default;
+}
+.ipt-disabled:focus {
+  border: 1px solid #ddd;
+}
+.ipt-login {
+  width: 220px;
+  padding-left: 30px;
+}
+.slt-large {
+  width: 246px;
+}
+.slt-medium {
+  width: 196px;
+}
+.slt-small {
+  width: 136px;
+}
+.slt-mini {
+  width: 96px;
+}
+.slt-login {
+  width: 220px;
+  padding-left: 30px;
+}
+lable {
+  cursor: pointer;
+}

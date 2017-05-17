@@ -1,0 +1,70 @@
+<div class="content" hb-nice-scroll nice-scroll-end="events.findMore()">
+
+    <ul class="ul-course-block ucb-1 clearfix">
+        <li class="add-class"><a href="javascript:void(0);">
+            <img src="images/add_class.png" alt=""
+                 ui-sref="states.exam.wait"></a>
+        </li>
+        <li class="li-1" ng-click="events.detail($event)">
+            <a href="#" class="course-img"><img src="/mfs/advert/bendihao.jpg" width="240px" alt=""/></a>
+            <span class="test-label">删</span>
+            <div class="cont">
+                <span class="guide-class-txt gct-1">开考时间： </span>
+                <span class="guide-class-txt">链接地址：http://www.baiduf.sdfjsldfjsdklfjsladjflksdjflsajdflsjflsdjflksdjflsjflksdjfklsdjflskdfjdls</span>
+                <span class="guide-class-txt">实际点击：258次，加载次数：125次</span>
+            </div>
+        </li>
+         <li class="li-1" ng-click="events.detail($event)">
+            <a href="#" class="course-img" ng-click="events.detail($event)"><img src="/mfs/advert/bendihao.jpg" alt=""/></a>
+            <span class="test-label">删</span>
+            <div class="cont">
+                <span class="guide-class-txt gct-1">开考时间： </span>
+                <span class="guide-class-txt">链接地址：</span>
+                <span class="guide-class-txt">实际点击：258次，加载次数：125次</span>
+            </div>
+        </li>
+
+
+        <!-- 待考 -->
+        <li class="li-1" ng-repeat="paper in model.paperList">
+            <a href="#" class="course-img" ng-click="events.detail($event, paper)"><img src="images/test-pic.jpg" alt=""/></a>
+            <span class="test-label">删</span>
+            <span href="#" class="mask-1" title="b{{paper.name}}">b{{paper.title}}</span>
+            <div class="cont">
+                <span class="guide-class-txt gct-1">开考时间： <br>b{{paper.beginTime | date:'yyyy-MM-dd HH:mm'}}  至  b{{paper.endTime | date: 'yyyy-MM-dd HH:mm'}}</span>
+            </div>
+        </li>
+
+        <!-- 已考 -->
+        <li class="li-1" ng-repeat="paper in model.paperList" ng-if="paper.state === -1">
+            <a href="#" class="course-img" ng-click="events.detail($event, paper)"><img src="images/test-pic.jpg" alt=""/></a>
+            <span class="test-label">b{{paper.examRoundInfo.examModeType == 1 ? '随' : '统'}}</span>
+            <!-------------  不及格时把pass改成no-pass  ------------- -->
+            <span class="test-result pass" ng-if="paper.publishType==1" ng-class="{'pass': paper.score >= paper.passScore, 'no-pass': paper.score < paper.passScore}"></span>
+            <span href="#" class="mask-1" title="b{{paper.name}}">b{{paper.name}}</span>
+            <div class="cont mt5">
+                <span class="guide-class-txt">考试时间： b{{paper.enterTime}}</span>
+                <span class="guide-class-txt" ng-if="paper.publishType==1">成绩：
+                    <span class="green-text-1">b{{paper.score}}</span>分
+                </span>
+                <span class="guide-class-txt" ng-if="paper.publishType==0">成绩：
+                    不公布
+                </span>
+                 <span class="guide-class-txt" ng-if="paper.publishType==2">成绩：
+                    限时公布
+                </span>
+            </div>
+        </li>
+
+        <!-- 漏考 -->
+        <li class="li-1" ng-repeat="paper in model.paperList" ng-if="paper.state === 1">
+            <a href="#" class="course-img" ng-click="events.detail($event, paper)"><img src="images/test-miss-pic.jpg" alt=""/></a>
+            <span class="test-label">b{{paper.examRoundInfo.examModeType == 1 ? '随' : '统'}}</span>
+            <span href="#" class="mask-1" title="b{{paper.name}}">b{{paper.name}}</span>
+            <div class="cont">
+                <span class="guide-class-txt gct-1">开考时间： <br>b{{paper.beginTime | date:'yyyy-MM-dd HH:mm'}}  至  b{{paper.endTime | date:'yyyy-MM-dd HH:mm'}}</span>
+                <span class="guide-class-txt">参考258人，已考125人</span>
+            </div>
+        </li>
+    </ul>
+</div>

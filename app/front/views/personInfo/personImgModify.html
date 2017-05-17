@@ -1,0 +1,37 @@
+<div class="wrap-title mb20 clearfix">
+    <span class="ico"></span>当前我的头像<span class="sub-txt">【如果您还没有设置自己的头像，系统会显示为默认头像，您需要自己上传一张新照片来作为自己的个人头像】</span>
+</div>
+<div class="preview-img-1 clearfix">
+    <div class="p-img-1 pull-left">
+        <img
+                ng-src="b{{model.personInfo.displayPhotoUrl ? '/mfs'+ model.personInfo.displayPhotoUrl : (uploadValue ? '/mfs'+ uploadValue.convertResult[0].url : 'images/user-img.jpg')}}"
+                alt=" ">
+
+        <p>120px × 120px</p>
+    </div>
+    <div class="p-img-2 pull-left">
+        <div class="img-user">
+            <img
+                    ng-src="b{{model.personInfo.displayPhotoUrl ? '/mfs'+ model.personInfo.displayPhotoUrl : (uploadValue ? '/mfs'+ uploadValue.convertResult[0].url : 'images/user-img.jpg')}}"
+                    alt=" ">
+            <span class="img-mask"><img src="images/user-img-mask.png"></span>
+        </div>
+        <p>80px × 80px</p>
+    </div>
+    <div class="p-img-3 pull-left">
+        <div class="img-user">
+            <img
+                    ng-src="b{{model.personInfo.displayPhotoUrl ? '/mfs'+ model.personInfo.displayPhotoUrl : (uploadValue ? '/mfs'+ uploadValue.convertResult[0].url : 'images/user-img.jpg')}}"
+                    alt=" ">
+            <span class="img-mask"><img src="images/user-img-mask.png"></span>
+        </div>
+        <p>60px × 60px</p>
+    </div>
+</div>
+<div class="wrap-title mt50 mb20 clearfix">
+    <span class="ico"></span>设置我的新头像<span class="sub-txt">【请选择一个新照片进行上传编辑。头像保存后，您可能需要刷新一下本页面(按F5键)，才能查看最新的头像效果】</span>
+</div>
+
+<div hb-upload-head ng-model="uploadValue"></div>
+<!--b{{uploadValue}}-->
+

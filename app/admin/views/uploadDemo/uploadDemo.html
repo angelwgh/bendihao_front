@@ -1,0 +1,179 @@
+<style>
+    .title {
+        border-left: 5px solid red;
+        margin: 10px;
+    }
+
+    hr {
+        border: 1px solid red;
+    }
+</style>
+<div ng-if="!$state.includes('states.uploadDemo.edit')">
+
+    <input kendo-datetimepicker ng-model="sdfs" hb-readonly hb-clear-input/>
+    <input type="text" ng-model="ssss" hb-clear-input/>
+    <input kendo-date-picker
+           ng-model="sssssss" type="text" class="ipt ipt-s"
+           hb-clear-input
+           placeholder="学员入职时间"/>
+    <input kendo-date-picker
+           hb-readonly
+           ng-model="aaaaaaa.aaaaa.d" type="text" class="ipt ipt-s"
+           hb-clear-input
+           placeholder="学员入职时间"/>
+    <input kendo-date-picker="node.workEndTime" k-options="ui.datePicker.end.options"
+           ng-model="model.employeePageParams.workEndDate" type="text" class="ipt ipt-s"
+           hb-clear-input
+           placeholder="学员入职时间"/>
+    <button class="k-button k-primary"
+            ng-click="model.uploadHead = false;model.uploadFile = false; model.uploadImage = true;">上传图片
+    </button>
+    <button class="k-button k-primary"
+            ng-click="model.uploadHead = false;model.uploadFile = true; model.uploadImage = false;">上传文件
+    </button>
+    <button class="k-button k-primary"
+            ng-click="model.uploadHead = true;model.uploadFile = false; model.uploadImage = false;">上传头像
+    </button>
+    <button class="k-button k-primary"
+            ng-click="openListenWindow('createDomPlayType', 'createDomLessonId', 'createDomCourseId')">试听
+    </button>
+
+
+    <div ng-if="model.uploadImage">
+        <div class="title">上传图片</div>
+        <hr/>
+        <div class="main-wrap-body">
+            <div class="steps mb30">
+                <div class="bg-line rd3"><span class="bg-l-current rd3" style="margin-left:0;"></span></div>
+                <ul class="ul-step li-fl clear">
+                    <li class="current"><span class="ico s-1"></span>
+
+                        <p class="step-name">填写课程基本信息</p></li>
+                    <li><span class="ico s-2"></span>
+
+                        <p class="step-name">设置课程章节</p></li>
+                    <li><span class="ico s-3"></span>
+
+                        <p class="step-name">保存课程</p></li>
+                </ul>
+            </div>
+            <div class="rel udf-2">
+                <ul class="ul-d-form udf-2 lh-1">
+                    <li><span class="left-txt"><i>*</i>课程名称：</span><input type="text" class="ipt ipt-large">
+                    </li>
+                    <li><span class="left-txt"><i>*</i>讲师：</span><input type="text" class="ipt ipt-large">
+                        <span class="li-prompt"><span class="ico ico-prompt"></span>资源分类已存在。</span>
+                    </li>
+                    <li><span class="left-txt"><i>*</i>学分：</span><input type="text" class="ipt ipt-large"> 分
+                    </li>
+                    <li><span class="left-txt"><i>*</i>课程资源分类：</span><input type="text"
+                                                                            class="ipt ipt-large">
+
+                        <div class="hide-block hb-1 hide">隐藏层</div>
+                    </li>
+                    <li><span class="left-txt">课程创建方：</span><input type="text" class="ipt ipt-large"></li>
+                    <li><span class="left-txt"><i>*</i>课程提供商：</span>
+                        <select class="slt slt-large">
+                            <option>课程提供商</option>
+                            <option>培训点</option>
+                            <option>培训科</option>
+                            <option>注册科</option>
+                        </select>
+                    </li>
+                    <li class="clear"><span class="left-txt fl">课程简介：</span><textarea
+                            class="textarea w-textarea fl">b{{model.uploadImageValue}}</textarea></li>
+                </ul>
+                <div class="course-pic" ng-mouseenter="showUpload=true" ng-mouseleave="showUpload=false">
+                    <img src="images/afei.jpg" id="lesson_image">
+
+                    <div class="pic-hover">
+                        <span class="pic-mask"></span>
+
+                        <div upload-image
+                             progress-func="events.show"
+                             ng-model="model.uploadImageValue"
+                             queue-container-id="lesson_image"></div>
+                    </div>
+                </div>
+                <div class="btn-center">
+                    <div class="btn-center">
+                        <a href="#" class="btn btn-r">保存并进入下一步</a>
+                        <a href="#" class="btn btn-r ml10">保存</a>
+                        <a href="#" class="btn btn-g ml10">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="model.uploadFile">
+        <div class="title">上传文件</div>
+        <hr/>
+        <div class="udf-4">
+            <ul class="ul-d-form udf-4 lh-1">
+                <li><span class="left-txt txt-long"><i>*</i>选择上传文件类型：</span>
+                    <select class="slt slt-large" ng-model="model.acceptType">
+                        <option value="rar">rar</option>
+                        <option value="jpg">jpg</option>
+                    </select>
+                </li>
+                <li><span class="left-txt">选择课件材料：</span>
+                    <a href="#" class="upload">
+                        <div upload-files="node.uploadFiles"
+                             allow-rename="true"
+                             file-accept-type="model.acceptType"
+                             ng-model="model.uploadFilesValue"
+                             id="upload_lesson"
+                                ></div>
+                    </a>
+                </li>
+            </ul>
+            <div class="dash-line"></div>
+            <div class="column" ng-init="model.uploadFilesValue=[]">
+                <a href="javascript: void(0);" class="btn-b btn" ng-click="appendFile()">历史上传课件</a><a
+                    href="javascript: void(0);" class="btn-r btn ml10" ng-click="Hb_uploadFile($event)">确认上传课件</a>
+            </div>
+
+            <div class="file-upload-box">
+                <ul class="ul-file-upload">
+                    <li ng-repeat="oneFile in model.uploadFilesValue">
+                    <span class="file-tit to fl" title="b{{oneFile.renameName}}.b{{oneFile.ext}}">b{{$index + 1}}.<span
+                            class="ico ico-document"></span>
+                        <span ng-if="!oneFile.onEdit">b{{oneFile.renameName}}.b{{oneFile.ext}}</span>
+                        <input type="text" ng-model="oneFile.renameName" ng-if="oneFile.onEdit"/>
+                    </span><span
+                            class="fl ml5">(b{{oneFile.formatSize}})</span>
+                        <span class="upload-progress" ng-style="{opacity: oneFile.record ? 0 : 1}"><span class="current"
+                                                                                                         style="width: b{{oneFile.progress}}%"></span></span>
+                        <span class="file-state txt-b" ng-if="!oneFile.record">b{{oneFile.progress === 100 ? '上传完成' : oneFile.progress + '%'}}</span>
+                        <span class="file-state txt-b" ng-if="oneFile.record">历史记录</span>
+                    <span class="fr-ico">
+                        <a href="javascript: void(0);" title="修改名称" ng-if="!oneFile.onEdit && !oneFile.record"
+                           class="k-icon k-i-pencil" ng-click="oneFile.onEdit = true"></a>
+                        <a href="javascript: void(0);" title="保存修改" ng-if="oneFile.onEdit && !oneFile.record"
+                           class="k-icon k-i-tick" ng-click="oneFile.onEdit = false"></a>
+                        <a href="javascript: void(0);" title="上移" class="ico-op ico-up"></a>
+                        <a href="javascript: void(0);" title="下移" class="ico-op ico-down"></a>
+                        <a href="javascript: void(0);" title="移除" class="ico-op ico-del"
+                           ng-click="Hb_deleteFile(oneFile)"></a>
+                    </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="model.uploadHead">
+        b{{model.uploadHead}}
+        <div class="title">上传头像</div>
+        <hr/>
+        <div upload-head ng-model="model.uploadHeadValue" close="model.uploadHead">
+
+        </div>
+    </div>
+</div>
+b{{globle.isWitch(this, 'edit')}}
+b{{$stateParams.id}}
+<a ng-click="globle.__Biu(this ,'states.uploadDemo.edit', 'edit')">修改</a>
+<a ng-click="globle.__Biu(this ,'states.uploadDemo.release', 'release')">发布</a>
+<ui-view></ui-view>

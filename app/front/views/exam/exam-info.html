@@ -1,0 +1,99 @@
+<div class="modules zoomInDown animated">
+    <div class="header">
+        <div class="wrap clearfix">
+            <!--<a ui-sref="states.home" class="h-btn btn-min" title="桌面"></a>-->
+            <a href="javascript:void(0)" ng-click="events.stateSkip($event)" class="h-btn btn-back" title="上一步"></a>
+            <a ui-sref="states.home" class="h-btn btn-close" title="关闭"></a>
+            <div class="title">考试信息</div>
+        </div>
+    </div>
+
+    <div class="main-wrap-body">
+        <div class="wrap">
+            <div class="clearfix">
+                <div class="wp-2 fl">
+                    <div class="wrap-title mb20"><span class="ico"></span>考试信息</div>
+                    <ul class="ul-form w-7 ml30">
+                        <li><span class="left-txt">考试名称：</span>b{{model.examInfos.examName}}</li>
+                        <li ng-if="isshow"><span class="left-txt">所属培训班：</span>b{{model.examInfos.theTrainingClass}}</li>
+                        <li><span class="left-txt">考试总分：</span>b{{model.examInfos.examScore}} 分</li>
+                        <li><span class="left-txt">考试及格分数：</span>b{{model.examInfos.examPassScore}} 分</li>
+                        <li><span class="left-txt">考试时长：</span>b{{model.examInfos.examTime}} 分钟</li>
+                        <li><span class="left-txt txt-long">考试起止时间范围：</span>b{{model.examInfos.examStartTime}} <span
+                            class="ml5 hide">13:23</span> 至b{{model.examInfos.examEndTime}} <span
+                            class="ml5 hide">13:23</span></li>
+                        <li ng-if="cannotExamTime"><span class="left-txt txt-long">开考多久不可考试：</span>b{{model.examInfos.cannotExamTime}}
+                            分钟
+                        </li>
+                        <li ng-if="cannotHandExamTime"><span class="left-txt txt-long-1">开考后多久内不许交卷：</span>b{{model.examInfos.cannotHandExamTime}}
+                            分钟
+                        </li>
+                        <li ng-if="scorePublishWay"><span class="left-txt">成绩公布方式：</span>b{{model.examInfos.scorePublishWay}}
+                        </li>
+                        <li ng-if="scorePublishTime"><span class="left-txt">成绩公布时间：</span>b{{model.examInfos.scorePublishTime}}<span
+                            class="ml5 hide">13:23</span></li>
+                    </ul>
+                    <div class="dash-line"></div>
+                    <div class="ma btn-center">
+                        <button type="submit" class="countdown btn btn-gr" ng-class="{hide: confirmbutton}"
+                                ng-click="events.comfirmExam($event)">确认进入考试
+                        </button>
+
+                        <button type="submit" class="countdown btn btn-gr" ng-class="{hide: enter}">考试进入时间已到，无法进入！
+                        </button>
+                        <!--<div class="countdown" ng-class="{hide: timebutton}">考试将于<span class="time">b{{time}}</span>开始
+                        </div>-->
+                        <button class="countdown btn btn-gr hide" ng-class="{hide: timebutton}">考试将于<span class="time">b{{time}}</span>开始
+                        </button>
+                        <button type="submit" class="countdown btn btn-gr" ng-class="{hide: endbutton}">考试已经结束</button>
+                        <button type="submit" ng-click="events.noquerybutton($event)" class="countdown btn btn-gr"
+                                ng-class="{hide: noquerybutton}">进去查看试卷（未阅卷）
+                        </button>
+                        <button type="submit" ng-click="events.querybutton($event)" class="countdown btn btn-gr"
+                                ng-class="{hide: querybutton}">进去查看试卷（已阅卷）
+                        </button>
+                    </div>
+                </div>
+                <div class="wp-3 fr">
+                    <div class="test-instructions">
+                        <div class="wrap-title mb20"><span class="ico"></span>考试注意事项说明</div>
+                        <div class="ti-cont">
+                            <p class="ti-tit">一、答题时间</p>
+
+                            <p>在您看完考试信息及注意事项之后，点击【确认进入考试】按钮进入答题界面，考试开始计时。</p>
+
+                            <p class="ti-tit">二、答题环境 </p>
+
+                            <p>1、试卷上方会显示一个时钟提示考试时间或答卷者的剩余时间，在考试过程中，您可以【提交考试】。</p>
+
+                            <p>
+                                2、考生按题目要求答题，选择和判断题型用鼠标左键单击选中答案，填空和问答题可以用键盘切换出输入法并在考试页面上输入答案，切换输入法热键一般为Shift+Ctrl或Alt+Shift。 </p>
+
+                            <p>3、考生答题过程中，不得运行与考试无关的程序，否则系统可能会给出错误提示并自动为您交卷。</p>
+
+                            <p>4、如果考试过程中遇到病毒或其他原因导致考试页面非法关闭，在有效时间内可以重新【进入考试】并启用本地缓存，系统将保存所做试题，您可以在剩余时间内继续答题。</p>
+
+                            <p>5、答题完毕后，可检查【答题卡】，是否有标记为未答与不确定的试题，确认无误后点击【提交答卷】按钮，提交考试试卷。</p>
+
+                            <p class="ti-tit">三、考试结果 </p>
+
+                            <p>考试结束后，待考试后续工作完成后您可以在【我的考试-已考】查询您的分数或答卷。</p>
+
+                            <p class="ti-tit">四、考试时间与计算机说明 </p>
+
+                            <p>1、有效IP地址： 不限制，登录IP地址：27.155.242.182</p>
+
+                            <p>2、允许参加时间： 按配置显示</p>
+
+                            <p class="ti-tit">五、考试浏览器注意事项 </p>
+
+                            <p>1、IE浏览器不可使用兼容模式；</p>
+
+                            <p>2、Sogou、360浏览器请使用极速模式，不能使用兼容模式；</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

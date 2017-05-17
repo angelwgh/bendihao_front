@@ -1,0 +1,101 @@
+<div class="modules zoomInDown animated">
+    <div class="header">
+        <div class="wrap clearfix">
+            <!--<a ui-sref="^.home" class="h-btn btn-min" title="桌面" href="#/home"></a>-->
+            <a href="#" class="h-btn btn-back" ng-click="events.goBack($event)" title="上一步"></a>
+            <a ui-sref="^.home" class="h-btn btn-close" title="关闭" href="#/home"></a>
+
+            <div class="title">我的考试</div>
+        </div>
+    </div>
+    <div class="main-wrap-body">
+        <div class="wrap">
+            <div class="wrap-title mb20"><span class="ico"></span>查看试题</div>
+            <ul class="ul-d-form udf-2 ml30 mt10px">
+                <li><span class="left-txt">试题所属题库：</span>b{{model.questionView.libraryName}}</li>
+                <li><span class="left-txt">试题类型：</span>b{{model.questionView.questionTypeName}}</li>
+                <li class="clear"><span class="left-txt fl">试题题目：</span>
+
+                    <div class="w-textarea2 fl">
+                        <span ng-bind-html="model.questionView.topic"></span>
+                    </div>
+                </li>
+                <!--简答题-->
+                <li class="clear" ng-if="model.questionView.questionType==16"><span class="left-txt fl">参考答案：</span>
+
+                    <div class="w-textarea2 fl">
+                        <span ng-bind-html="model.questionView.answers"></span>
+                    </div>
+                </li>
+                <!--单选题、多选题 -->
+                <li class="clear"><span class="left-txt fl"
+                                        ng-if="model.questionView.questionType==2||model.questionView.questionType==4">试题选项：</span>
+
+                    <div class="w-textarea2 fl">
+                        <div class="clear" ng-repeat="item in model.questionView.items"><span class="fl mr10">b{{events.getLetter($index+1)}}.</span>
+                            <span ng-bind-html="item.selectTopic"></span>
+                        </div>
+                    </div>
+                </li>
+                <!-- 判断题-->
+                <li ng-if="model.questionView.questionType==2"><span class="left-txt">试题正确答案：</span>b{{events.getRadioRightAnswer(model.questionView.items)}}
+                </li>
+                <li ng-if="model.questionView.questionType==4">
+                    <span class="left-txt">试题正确答案：</span>
+                    <span ng-repeat="item in events.getMultiselectAnswer(model.questionView.items)">
+                        b{{item}}&nbsp&nbsp
+                    </span>
+                </li>
+                <!-- 填空题-->
+                <li ng-if="model.questionView.questionType==8"><span class="left-txt">答案匹配规则：</span>
+                    <span ng-if="model.questionView.extraType==='many'">每空多种答案</span>
+                    <span ng-if="model.questionView.extraType==='one'">每空答案精确匹配</span>
+                </li>
+                <li class="clear" ng-if="model.questionView.questionType==8"><span class="left-txt fl">试题正确答案：</span>
+
+                    <div class="w-textarea2 b fl" ng-if="model.questionView.extraType==='one'">
+                        <div class="clear" ng-repeat="item in model.questionView.answersGroup">
+                            <span class="fl mr10">第b{{events.toChinese($index+1)}}组：</span>
+
+                            <div class="answer-box fl">
+                                <span class="mr10" ng-repeat="item2 in item">b{{item2.keywords[0]}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-textarea2 b fl" ng-if="model.questionView.extraType==='many'">
+                        <div class="mt10 clear" ng-repeat="item in model.questionView.answersGroup[0]">
+                            <span class="fl mr10">第b{{events.toChinese($index+1)}}空：</span>
+
+                            <div class="answer-box fl" ng-repeat="item2 in item.keywords">
+                                <span class="mr10">b{{item2}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--判断题-->
+                <li ng-if="model.questionView.questionType==1">
+                    <span class="left-txt">正确项：</span>
+                    <span ng-if="model.questionView.yes==='true'">正确</span>
+                    <span ng-if="model.questionView.yes==='false'">错误</span>
+                </li>
+
+                <li><span class="left-txt">试题难易度：</span>
+                    <span ng-if="model.questionView.mode==1">简单</span>
+                    <span ng-if="model.questionView.mode==2">中等</span>
+                    <span ng-if="model.questionView.mode==3">难</span>
+                </li>
+                <li><span class="left-txt">试题是否启用：</span>
+                    <span ng-if="model.questionView.enabled==='true'">启用</span>
+                    <span ng-if="model.questionView.enabled==='false'">停用</span>
+                </li>
+                <li class="clear"><span class="left-txt fl">试题解析：</span>
+
+                    <div class="w-textarea2 fl">
+                        <span ng-bind-html="model.questionView.description"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

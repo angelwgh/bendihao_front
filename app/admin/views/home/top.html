@@ -1,0 +1,26 @@
+<div class="header clear">
+    <a href="javascript:void(0);" class="logo fl">
+        本地联系网管理平台
+    </a>
+
+    <div class="header-nav fr">
+        <a href="/FxbManager/userController/doLogout">退出登录</a>
+    </div>
+    <div class="user fr">
+        <div class="img-user fl">
+            <img ng-src="b{{ $$userInfo.photo ? '/mfs'+ $$userInfo.photo : 'images/user-img.jpg'}}" alt=" ">
+            <span class="img-mask"><img ng-src="images/user-img-mask.png"></span>
+        </div>
+        <div class="user-info fl">
+            <span class="user-name"
+                  style="cursor: pointer;"
+                  ng-click="globle.stateGo('states.personCenter', '个人中心')" ng-bind="$$userInfo.userName"></span>
+            <span class="user-name" ng-if="!$$userInfo.userName || $$userInfo.userName === ''"
+                  style="color: red;">请登录</span>
+            <a href="javascript:void(0);" class="user-level rd3"
+               ng-if="$$userInfo.userName && $$userInfo.userName !== ''">管理员
+                <!--<i class="ico"></i>-->
+            </a>
+        </div>
+    </div>
+</div>

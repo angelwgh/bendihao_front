@@ -1,0 +1,18 @@
+<div class="content" hb-nice-scroll nice-scroll-end="events.findMore()">
+    <ul class="ul-course-block ucb-1 clearfix">
+        <div class="no-data clear" ng-show="model.paperList.length<1">
+            <div class="p-img"><img src="images/empty.png"></div>
+            <div class="p-txt">暂无广告</div>
+        </div>
+        <!-- 漏考 -->
+        <li class="li-1" ng-repeat="paper in model.paperList" ng-if="paper.state === 1">
+            <a href="#" class="course-img" ng-click="events.detail($event, paper)"><img src="images/test-miss-pic.jpg" alt=""/></a>
+            <span class="test-label">b{{paper.examRoundInfo.examModeType == 1 ? '随' : '统'}}</span>
+            <span href="#" class="mask-1" title="b{{paper.name}}">b{{paper.name}}</span>
+            <div class="cont">
+                <span class="guide-class-txt gct-1">开考时间： <br>b{{paper.beginTime | date:'yyyy-MM-dd HH:mm'}}  至  b{{paper.endTime | date:'yyyy-MM-dd HH:mm'}}</span>
+                <span class="guide-class-txt">参考258人，已考125人</span>
+            </div>
+        </li>
+    </ul>
+</div>

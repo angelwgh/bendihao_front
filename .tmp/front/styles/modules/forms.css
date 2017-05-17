@@ -1,0 +1,96 @@
+.ipt,
+select,
+textarea {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 7px;
+  margin: 0;
+  color: #666;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  transition: all .4s;
+  -moz-transition: all .4s;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+}
+.ipt:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+select {
+  padding: 6px 7px;
+}
+::-webkit-input-placeholder {
+  color: #666;
+}
+:-ms-input-placeholder {
+  color: #666;
+}
+:-moz-placeholder {
+  color: #666;
+}
+::-moz-placeholder {
+  color: #666;
+}
+textarea {
+  height: 100px;
+  resize: none;
+}
+.textarea-1 {
+  height: 60px;
+}
+.chk,
+.rad {
+  position: relative;
+  *top: 1px;
+  margin: 0 4px 0 0;
+  *margin: 0 0 0 -4px;
+}
+/**********  input  ***************/
+.form-inline .ipt-large {
+  width: 230px;
+}
+.form-inline .ipt-medium {
+  width: 180px;
+}
+.form-inline .ipt-small {
+  width: 120px;
+}
+.form-inline .ipt-mini {
+  width: 80px;
+}
+.form-inline .ipt-c-xm {
+  width: 40px;
+  text-align: center;
+}
+.form-inline .table .ipt-c-xm {
+  padding: 4px;
+}
+.form-inline .ipt-disabled {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+.form-inline .ipt-disabled:focus {
+  border: 1px solid #ddd;
+}
+.form-inline .ipt-login {
+  width: 220px;
+  padding-left: 30px;
+}
+.form-inline .slt-large {
+  width: 230px;
+}
+.form-inline .slt-medium {
+  width: 180px;
+}
+.form-inline .slt-small {
+  width: 120px;
+}
+.form-inline .slt-mini {
+  width: 96px;
+}
+.form-inline lable {
+  cursor: pointer;
+}

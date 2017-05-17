@@ -1,0 +1,95 @@
+<div class="main-wrap-body o-hide"
+     ng-show="pageVar.hasCourse||model.queryParam.courseName!=''||model.queryParam.courseCategoryId!=''||pageVar.hasQuery">
+    <div class="wrap">
+        <div class="list-nav pull-left">
+            <!-- 手风琴样式 开始 -->
+            <ul class="list-nav-ul" id="category_all">
+                <li ng-class="{'list-nav-current':model.queryParam.courseCategoryId===''}">
+                    <a href="javascript:void(0);"
+                       ng-click="events.selectCourseCategory($event,'')"
+                        >
+                        全部课程
+                    </a>
+                </li>
+            </ul>
+            <!-- 手风琴样式 结束 -->
+        </div>
+
+        <div class="content-box pull-right">
+            <div class="content" hb-nice-scroll nice-scroll-end="events.findMore()" show-to-top="true" id="contentDiv">
+                <div class="search-bar body-bg">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control"
+                                   ng-model="model.queryParam.courseName"
+                                   ng-keyup="events.pressEnterKey($event)"
+                                   placeholder="请输入课程名称搜索">
+                        </div>
+                        <button type="submit" class="btn btn-gr" ng-click="events.findByQuery($event)">搜索</button>
+                        <span class="ml20">赞数：</span>
+                        <!-----------   选择时 改成btn-r ----------->
+                        <button type="button" class="btn btn-g" ng-click="events.Order($event,1)" id="orderHigh">高
+                        </button>
+                        <button type="button" class="btn btn-g" ng-click="events.Order($event,0)" id="orderLow">低
+                        </button>
+                    </div>
+                </div>
+                <!-----------------  使用media属性，ie8不兼容，ie8需要使用js控制  ------------------>
+                <ul class="ul-course-block ucb-1 mt45 clearfix"  ng-show="pageVar.hasCourse">
+                    <li ng-repeat="courseInfo in model.courseInfoList">
+                        <span class="name" title="b{{courseInfo.courseName}}"><span ng-bind="courseInfo.courseShortName"></span></span>
+
+                        <div class="guide-class-img">
+                            <a href="javascript:void(0);" class="course-img">
+                                <img src="images/afei.jpg" alt="" ng-show="courseInfo.courseIconPath===''"/>
+                                <img src="/mfsb{{courseInfo.courseIconPath}}" alt=""
+                                     ng-show="courseInfo.courseIconPath!=''"/>
+                            </a>
+                            <a href="javascript:void(0);" class="mask"
+                               ng-click="events.playCourse($event,courseInfo.courseId)">
+                                <img src="images/play_icon.png" alt=""/>
+                            </a>
+                        </div>
+                        <a href="javascript:void(0);" class="guide-class-icon"
+                           ng-click="events.selectCourse($event,courseInfo.courseId)">
+                            <img src="images/icon_choose.png" title="我要选择" alt=" ">
+                        </a>
+                        <a href="javascript:void(0);" class="guide-class-icon"
+                           ng-click="events.playCourse($event,courseInfo.courseId)">
+                            <img src="images/icon_audition.png" title="我要试听" alt="">
+                        </a>
+                        <a href="javascript:void(0);" class="guide-class-icon detail" ui-sref="states.courseDetail({courseId:courseInfo.courseId,states:'states.mySelectCourse.add',playType:1})">
+                            <img src="images/icon_details.png" title="课程详情" alt="" id="img_b{{courseInfo.courseId}}"
+                                 ng-mouseover="events.changeDetailClass($event,'img_'+courseInfo.courseId,courseInfo.courseId)">
+                            <!-- 课程详情  需要判断在右边显示还是在左边显示 -->
+                            <div class="detail-block detail-block-right" id="detail_b{{courseInfo.courseId}}">
+                                <div ng-if="courseInfo.courseContents!=''" ng-bind="courseInfo.courseContents"></div>
+                                <div ng-if="courseInfo.courseContents===''">暂无课程简介</div>
+                                <br><span class="detail-block-bold">课程分类：</span>b{{courseInfo.categoryName}}
+                                <br><span class="detail-block-bold">上传时间：</span>b{{courseInfo.courseCreateTime}}
+                                <span class="detail-block-arrow"><img src="images/detail_arrow.png" alt=" " id="direction_b{{courseInfo.courseId}}"></span>
+                                <span class="detail-block-bold">被赞：</span>b{{courseInfo.praiseCount}}&nbsp;次
+                                </br><span class="detail-block-bold">被踩：</span>b{{courseInfo.treadCount}}&nbsp;次
+                            </div>
+                            <!-- 课程详情 -->
+                        </a>
+
+                    </li>
+                </ul>
+                <!--沒有查找到課程的默認圖片-->
+                <div class="no-data nd-v-middle clearfix"
+                     ng-show="(!pageVar.hasCourse)&&(model.queryParam.courseName!=''||model.queryParam.courseCategoryId!='')">
+                    <div class="p-img"><img src="images/empty.png"></div>
+                    <div class="p-txt">亲，未找到哦！</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--沒有待選选修课-->
+<div class="no-data nd-v-middle clearfix"
+     ng-show="(!pageVar.hasCourse)&&model.queryParam.courseName==''&&model.queryParam.courseCategoryId==''&&(!pageVar.hasQuery)">
+    <div class="p-img"><img src="images/empty.png"></div>
+    <div class="p-txt">课程已学完!</div>
+</div>
