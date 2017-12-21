@@ -5,14 +5,14 @@ const db = require('../modules/db')
 const admin = require('./admin')
 const front = require('./front')
 
-var user = require('./users.js')
+const users = require('./users')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.send('ajax')
 });
 
-router.use('/users', user)
+router.use('/userController', users)
 router.use('/admin', admin)
 router.use('/front', front)
 

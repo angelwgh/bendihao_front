@@ -8,8 +8,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'home',
+      component: () => import('@/components/home/home.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/components/login/login.vue')
     }
   ]
 })

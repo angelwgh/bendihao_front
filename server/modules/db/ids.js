@@ -1,3 +1,7 @@
+/**
+ * 保存唯一的id
+ */
+
 var mongoose = require("mongoose");
 
 var idSchema = new mongoose.Schema({

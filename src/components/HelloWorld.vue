@@ -123,7 +123,7 @@ export default {
   },
 
   mounted () {
-    console.log(111)
+    console.log(this)
     this.getUsers()
   }
 
