@@ -63,11 +63,38 @@ const router = express.Router();
 //     res.send('删除成功')
 //   })
 // })
+
+
+
+// 注册时检测用户名是否已经被使用
+
+router.get('/checkUsername', (req, res) => {
+  const username = req.query.username
+  userController.checkUsername(username)
+    .then((result)=>{
+      res.send(result)
+    })
+    .catch( (err)=>{
+      res.send(err)
+    })
+})
+// 注册
+router.post('/signup', (req, res, next) => {
+  console.log(req.body)
+  userController.signup(req.body)
+  .then((result)=>{
+    console.log(result)
+    res.send(result)
+  })
+})
+
+// 登陆
 router.get('/login', (req, res, next) => {
   console.log(req.query)
   userController.login(req.query)
   .then((result)=>{
     // console.log(result)
+    req.session.username = req.query.username;
     res.send(result)
   })
   .catch( (err)=>{
@@ -75,5 +102,11 @@ router.get('/login', (req, res, next) => {
   })
 
  
+})
+
+// 获取用户信息
+router.get('/queryUserInfo', (req, res, next) => {
+  console.log(req.session)
+  res.send(req.session.username)
 })
 module.exports = router;

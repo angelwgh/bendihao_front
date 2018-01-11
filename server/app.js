@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+const session = require('express-session')
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
@@ -20,6 +21,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'jiami',// 应用在https
+  resave: false, // 是指每次请求都重新设置session, 重新计算过期时间
+  saveUninitialized: true //无论有没有session,每次都请求设置一个session
+}))
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 

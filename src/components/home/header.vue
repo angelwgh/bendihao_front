@@ -2,14 +2,21 @@
 	<div class="m-header">
 		<h1>angelwgh'blog</h1>
 		<div class="top-bar">
-			<el-button plain size="mini">注册</el-button>
-			<el-button plain size="mini">登录</el-button>
+			<el-button plain size="mini" @click="signup">注册</el-button>
+			<el-button plain size="mini" @click="login">登录</el-button>
 		</div>
 	</div>
 </template>
 <script>
 	export default {
-
+		methods: {
+			login () {
+				this.$router.push('login')
+			},
+			signup () {
+				this.$router.push('signup')
+			}
+		}
 	}
 </script>
 <style>

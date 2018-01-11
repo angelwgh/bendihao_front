@@ -1,6 +1,6 @@
 <template>
-	<div class="g-login">
-		<div class="m-login">
+	<div class="g-singup">
+		<div class="m-singup">
 			<div class="title">用户登录</div>
 			<el-form ref="userInfo" 
 				:model="userInfo" 
@@ -19,7 +19,7 @@
 				</el-form-item>
 				<el-form-item>
 				    <el-button type="primary" @click="login">登录</el-button>
-				    <el-button type="primary">注册</el-button>
+				    <el-button type="primary" @click="signup">注册</el-button>
 				</el-form-item>
 			</el-form>
 		</div>
@@ -54,13 +54,29 @@
 						username: this.userInfo.username,
 						password: this.userInfo.password
 					}
+				}).then((ret)=>{
+					if(ret.status == 200 && ret.data.state == 1){
+						this.$router.push({name:'home'})
+					}
 				})
+			},
+
+			// queryUserInfo() {
+			// 	this.$axios({
+			// 		url:'/ajax/userController/queryUserInfo'
+			// 	})
+			// 	.then( (ret)=> {
+			// 		console.log(ret)
+			// 	})
+			// }
+			signup () {
+				this.$router.push('signup')
 			}
 		}
 	}
 </script>
 <style>
-	.m-login{
+	.m-singup{
 		position: fixed;
 		padding: 10px;
 		padding-right: 30px;
@@ -71,7 +87,7 @@
 		border-radius: 5px;
 		border:1px solid #606266;
 	}
-	.m-login .title{
+	.m-singup .title{
 		color: #606266;
 		text-align: center;
 		line-height: 50px;
