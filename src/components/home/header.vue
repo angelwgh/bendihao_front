@@ -2,6 +2,7 @@
 	<div class="m-header">
 		<h1>angelwgh'blog</h1>
 		<div class="top-bar">
+			<el-button plain size="mini" @click="creatNote">写日志</el-button>
 			<el-button plain size="mini" @click="signup">注册</el-button>
 			<el-button plain size="mini" @click="login">登录</el-button>
 		</div>
@@ -10,6 +11,9 @@
 <script>
 	export default {
 		methods: {
+			creatNote () {
+				this.$router.push('creatNote')
+			},
 			login () {
 				this.$router.push('login')
 			},

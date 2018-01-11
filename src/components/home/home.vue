@@ -4,8 +4,10 @@
 		<el-header>
 			<v-header></v-header>
 		</el-header>
-		<el-aside>侧边</el-aside>
-		<el-main></el-main>
+		<el-container>
+			<el-aside>侧边</el-aside>
+			<el-main><router-view/></el-main>
+		</el-container>
 		<el-footer></el-footer>
 	</el-container>
 	

@@ -8,12 +8,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('@/components/home/home.vue')
+      component: () => import('@/components/home/home.vue'),
+      children:[
+        {
+          path: '',
+          name: 'home.main',
+          component: () => import('@/components/home/main.vue')
+        }
+      ]
     },
     {
       path: '/home',
       redirect: {name:'home'}
+    },
+    {
+      path: '/creatNote',
+      name: 'creeatNote',
+      component: () => import ('@/components/creatNote/creatNote.vue')
     },
     {
       path: '/login',
