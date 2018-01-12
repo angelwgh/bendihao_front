@@ -7,6 +7,7 @@ import axios from 'axios'
 import ElementUI from 'element-ui'
 import store from './store'
 
+import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/elementStyle/index.css'
 import './assets/css/style.css'
 
