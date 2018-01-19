@@ -5,6 +5,7 @@
 			<!-- <v-header></v-header> -->
 			<home-header></home-header>
 		</el-header>
+		<el-main>内容</el-main>
 		<!-- <div class="container">
 			<el-container>
 				<el-aside>

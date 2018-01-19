@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <!-- <div>
         <div class="crumbs">
             <el-breadcrumb separator="/">
                 <el-breadcrumb-item><i class="el-icon-date"></i> 表单</el-breadcrumb-item>
@@ -17,6 +17,16 @@
             <p>这个时候就需要解析markdown语法了。可以使用 <a href="https://github.com/miaolz123/vue-markdown" target="_blank">vue-markdown</a>：一个基于vue.js的markdown语法解析插件。（这里不作展开，有需要自行了解）</p>
         </div>
         <button @click="save">保存</button>
+    </div> -->
+
+    <div class="g-md-edit">
+        <el-button type="text" @click="gohome"> <i class="el-icon-arrow-left"></i>返回首页</el-button>
+        <div style="height:20px;"></div>
+    	<markdown-editor preview-class="markdown-body" v-model="content" :highlight="highlight" :configs="configs" ref="markdownEditor">
+    		
+    	</markdown-editor>
+        <el-button type="primary" @click="save">发布</el-button>
+    	<!-- <button @click="save">提交</button> -->
     </div>
 </template>
 
@@ -34,6 +44,7 @@
             	highlight:true,
                 content:'',
                 configs: {
+                    autoDownloadFontAwesome:false,
                     // status: true,
                     // initialValue: 'Hello BBK',
                     // highlight: true,
@@ -50,7 +61,15 @@
         methods: {
         	save () {
         		console.log(this.content)
+        	},
+        	gohome () {
+        		this.$router.push('home')
         	}
         }
     }
 </script>
+<style>
+	.g-md-edit{
+		padding: 20px;
+	}
+</style>
