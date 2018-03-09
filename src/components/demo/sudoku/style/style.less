@@ -1,0 +1,116 @@
+.m-skdoku {
+	width: 300px;
+	margin: 20px auto;
+	font-family: '微软雅黑';
+	.title {
+		text-align: center;
+	}
+
+	.container {
+		position: relative;
+		padding: 0;
+		width: 100%;
+		.row {
+			margin: 0;
+			box-sizing: content-box;
+			// width: 100%;
+			transform: translateX(5%);
+			span {
+				display: inline-block;
+				width: 10%;
+				text-align: center;
+				border: 1px solid #ccc;
+				background: #fff;
+				border-right-width: 0;
+				border-bottom-width: 0;
+				cursor: pointer;
+				&.col-g-right {
+
+					border-right-width: 1px
+
+				}
+
+				&.num-fixed{
+					background-color: #e3e3e3;
+				}
+
+				&.empty{
+					background-color: #fff;
+					color:#fff;
+				}
+
+				&.marker1{
+					background-color: lightgreen;
+					&.empty {
+						color:lightgreen;
+						
+					}
+				} 
+
+				&.marker2{
+					background-color: lightblue;
+					&.empty {
+						color:lightblue
+					}
+				}
+				
+				&.error{
+					background-color: lightpink;
+					&.empty{
+						color:lightpink
+					}
+				}
+
+				&:first-child {
+					border-left-width: 2px;
+				}
+
+				&:last-child {
+					border-right-width: 2px;
+				}
+			}
+
+			
+
+			&.row-g-bottom {
+				>span {
+					border-bottom-width: 1px;
+				}
+			}
+
+			&:first-child{
+				>span {
+					border-top-width: 2px
+				}
+			}
+
+			&:last-child{
+				>span {
+					border-bottom-width: 2px
+				}
+			}
+		}
+	}
+}
+
+@popupSizes: 40px;
+.popup-numbers {
+	.m-skdoku();
+	position: absolute;
+	margin: 0;
+	padding-left: 0;
+	width: auto;
+	.row {
+		span {
+			width: @popupSizes !important; 
+			height: @popupSizes;
+			line-height: @popupSizes;
+		}
+	}
+}
+
+.dashboard{
+	padding-top: 10px;
+	text-align: center;
+	
+}

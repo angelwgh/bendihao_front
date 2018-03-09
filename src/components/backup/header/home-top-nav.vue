@@ -1,11 +1,15 @@
 <template>
 	<div>
-		<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-		  <el-menu-item index="1">首页</el-menu-item>
-		  <el-menu-item index="2">归档</el-menu-item>
-		  <el-menu-item index="3">标签</el-menu-item>
-		  <el-menu-item index="4">分类</el-menu-item>
-		  <el-menu-item index="5">demo</el-menu-item>
+		<el-menu :default-active="activeIndex" 
+				 class="el-menu-demo" 
+				 mode="horizontal" 
+				 @select="handleSelect"
+				 :router="true">
+		  <el-menu-item index="home">首页</el-menu-item>
+		  <el-menu-item index="archives">归档</el-menu-item>
+		  <el-menu-item index="tags">标签</el-menu-item>
+		  <el-menu-item index="categories">分类</el-menu-item>
+		  <el-menu-item index="demos">demo</el-menu-item>
 		</el-menu>
 
 		<!-- <el-menu
@@ -33,7 +37,7 @@
   export default {
     data() {
       return {
-        activeIndex: '1'
+        activeIndex: 'home'
       };
     },
     methods: {

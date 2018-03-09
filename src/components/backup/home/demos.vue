@@ -1,8 +1,8 @@
 <template>
-	<div>main</div>
+	<div>代码</div>
 </template>
 <script>
 	export default {
-
+		
 	}
 </script>

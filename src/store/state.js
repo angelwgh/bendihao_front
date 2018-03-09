@@ -1,3 +1,4 @@
 export default{
-	userinfo: null
+	userinfo: null,
+	activeHeadNav: '/index'
 }
